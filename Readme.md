@@ -1,8 +1,8 @@
-# 📦 TD — API de détection d’objets avec IA (YOLO + FastAPI)
+#  TD — API de détection d’objets avec IA (YOLO + FastAPI)
 
 ---
 
-## 🎯 Objectif
+##  Objectif
 
 Ce TD a pour objectif de vous faire découvrir comment :
 
@@ -11,11 +11,11 @@ Ce TD a pour objectif de vous faire découvrir comment :
 * manipuler des données au format **JSON** ;
 * comprendre les bases d’une application moderne utilisée en entreprise.
 
-👉 À la fin de ce TD, vous serez capable de créer une **API simple intégrant de l’IA**.
+ À la fin de ce TD, vous serez capable de créer une **API simple intégrant de l’IA**.
 
 ---
 
-## 🧠 À quoi sert ce TD ?
+##  À quoi sert ce TD ?
 
 Dans le monde professionnel, les modèles d’IA ne sont **pas utilisés seuls**.
 Ils sont intégrés dans des systèmes complets :
@@ -25,7 +25,7 @@ Ils sont intégrés dans des systèmes complets :
 * logiciels industriels
 * systèmes embarqués
 
-👉 Ce TD vous montre comment passer de :
+ Ce TD vous montre comment passer de :
 
 ```text
 Script Python → Application utilisable (API)
@@ -33,7 +33,7 @@ Script Python → Application utilisable (API)
 
 ---
 
-## 🏭 Exemple concret
+##  Exemple concret
 
 Une entreprise peut utiliser ce type de système pour :
 
@@ -44,11 +44,11 @@ Une entreprise peut utiliser ce type de système pour :
 
 ---
 
-# 🧠 Pourquoi ces technologies ?
+#  Pourquoi ces technologies ?
 
 ---
 
-## 🔹 Pourquoi une API ?
+##  Pourquoi une API ?
 
 Sans API :
 
@@ -56,7 +56,7 @@ Sans API :
 Script Python → Résultat local
 ```
 
-👉 Limites :
+ Limites :
 
 * utilisable uniquement sur votre machine
 * non réutilisable
@@ -68,7 +68,7 @@ Avec une API :
 Client → API → Résultat
 ```
 
-👉 Avantages :
+ Avantages :
 
 * accessible via URL
 * utilisable par d’autres applications
@@ -76,22 +76,22 @@ Client → API → Résultat
 
 ---
 
-## 🔹 Pourquoi FastAPI ?
+##  Pourquoi FastAPI ?
 
 FastAPI permet de créer facilement une API en Python.
 
-✔️ Avantages :
+ Avantages :
 
 * simple à utiliser
 * rapide
 * documentation automatique (`/docs`)
 * peu de code
 
-👉 Il transforme un script en **service web**
+ Il transforme un script en **service web**
 
 ---
 
-## 🔹 Pourquoi YOLO ?
+##  Pourquoi YOLO ?
 
 YOLO est un modèle d’intelligence artificielle qui permet de :
 
@@ -99,31 +99,31 @@ YOLO est un modèle d’intelligence artificielle qui permet de :
 * localiser leur position
 * donner une probabilité
 
-👉 Modèle rapide et utilisé en industrie
+ Modèle rapide et utilisé en industrie
 
 ---
 
-## 🔹 Pourquoi Docker ?
+##  Pourquoi Docker ?
 
 Docker permet d’exécuter une application dans un conteneur.
 
-### ❌ Sans Docker :
+###  Sans Docker :
 
 * problèmes d’installation
 * versions incompatibles
 * “ça marche chez moi”
 
-### ✅ Avec Docker :
+###  Avec Docker :
 
 ```text
 Application + dépendances → conteneur
 ```
 
-👉 Même environnement partout
+ Même environnement partout
 
 ---
 
-## 🔁 Pipeline du TD
+##  Pipeline du TD
 
 ```text
 Image → API → YOLO → JSON + image annotée
@@ -131,9 +131,9 @@ Image → API → YOLO → JSON + image annotée
 
 ---
 
-# 🔹 Phase 1 — Modèle de vision (YOLO)
+#  Phase 1 — Modèle de vision (YOLO)
 
-## 🚀 Installation
+##  Installation
 
 ```bash
 git clone https://github.com/Tinny-Robot/Live-Object-Detection-with-Camera.git
@@ -147,7 +147,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Test du modèle
+##  Test du modèle
 
 Si vous êtes sous Windows avec caméra :
 
@@ -155,7 +155,7 @@ Si vous êtes sous Windows avec caméra :
 python app.py
 ```
 
-👉 Objectif :
+ Objectif :
 
 * tester YOLO
 * capturer une image
@@ -163,9 +163,9 @@ python app.py
 
 ---
 
-# 🔹 Phase 2 — API avec FastAPI
+#  Phase 2 — API avec FastAPI
 
-## 📦 Installation
+##  Installation
 
 ```bash
 pip install fastapi uvicorn python-multipart
@@ -173,7 +173,7 @@ pip install fastapi uvicorn python-multipart
 
 ---
 
-## 🧠 Code principal (`main.py`)
+##  Code principal (`main.py`)
 
 ```python
 from fastapi import FastAPI, UploadFile, File
@@ -243,7 +243,7 @@ def get_image(filename: str):
 
 ---
 
-## ▶️ Lancer l’API
+##  Lancer l’API
 
 ```bash
 uvicorn main:app --reload
@@ -251,7 +251,7 @@ uvicorn main:app --reload
 
 ---
 
-## 🌐 Accès
+##  Accès
 
 ```text
 http://127.0.0.1:8000/docs
@@ -259,7 +259,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 📂 Résultat
+##  Résultat
 
 Les images détectées sont sauvegardées dans :
 
@@ -269,7 +269,7 @@ outputs/
 
 ---
 
-## 🖼️ Voir une image
+##  Voir une image
 
 ```text
 http://127.0.0.1:8000/image/NOM_IMAGE.jpg
@@ -277,16 +277,16 @@ http://127.0.0.1:8000/image/NOM_IMAGE.jpg
 
 ---
 
-## ⚠️ Remarques
+##  Remarques
 
 * Les warnings CUDA peuvent être ignorés
 * Le modèle fonctionne en CPU
 
 ---
 
-# 🔹 Phase 3 — Docker
+#  Phase 3 — Docker
 
-## 📦 requirements.txt
+##  requirements.txt
 
 ```txt
 fastapi
@@ -299,7 +299,7 @@ supervision
 
 ---
 
-## 🐳 Dockerfile
+##  Dockerfile
 
 ```dockerfile
 FROM python:3.11-slim
@@ -328,7 +328,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-## 🚫 .dockerignore
+##  .dockerignore
 
 ```text
 .venv
@@ -340,7 +340,7 @@ outputs
 
 ---
 
-## 🔨 Build
+##  Build
 
 ```bash
 docker build -t yolo-api .
@@ -348,7 +348,7 @@ docker build -t yolo-api .
 
 ---
 
-## ▶️ Run
+##  Run
 
 Linux / WSL :
 
@@ -364,7 +364,7 @@ docker run --rm -p 8000:8000 -v ${PWD}/outputs:/app/outputs yolo-api
 
 ---
 
-## 🧪 Test
+##  Test
 
 ```text
 http://localhost:8000/docs
@@ -372,7 +372,7 @@ http://localhost:8000/docs
 
 ---
 
-## ✅ Résultat attendu
+##  Résultat attendu
 
 * upload image
 * JSON de détection
@@ -380,7 +380,7 @@ http://localhost:8000/docs
 
 ---
 
-## 🧠 Ce que vous apprenez
+##  Ce que vous apprenez
 
 * transformer un script IA en API
 * manipuler des images
@@ -389,6 +389,6 @@ http://localhost:8000/docs
 
 ---
 
-## 📌 Résumé
+##  Résumé
 
-👉 Transformer un modèle d’IA en **service web utilisable**
+ Transformer un modèle d’IA en **service web utilisable**
