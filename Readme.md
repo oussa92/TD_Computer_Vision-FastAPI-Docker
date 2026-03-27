@@ -1,4 +1,4 @@
-#  TD — API de détection d’objets avec IA (YOLO + FastAPI)
+#  TD — Détection d’objets avec IA + FastAPI +Docker
 
 ---
 
@@ -11,8 +11,7 @@ Ce TD a pour objectif de vous faire découvrir comment :
 * manipuler des données au format **JSON** ;
 * comprendre les bases d’une application moderne utilisée en entreprise.
 
- À la fin de ce TD, vous serez capable de créer une **API simple intégrant de l’IA**.
-
+ À la fin de ce TD, vous serez capable de créer une API simple intégrant de l’intelligence artificielle et de la déployer dans un conteneur Docker pour garantir sa portabilité et sa reproductibilité.
 ---
 
 ##  À quoi sert ce TD ?
